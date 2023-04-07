@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <a class="navbar-brand" routerLink="/func">Back</a>
+    <router-outlet></router-outlet>
+</nav>
+
+<table class="table border" *ngIf="users.length>0">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Password</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let t of users">
+            <td>{{t.id}}</td>
+            <td>{{t.username}}</td>
+            <td>{{t.password}}</td>
+            <td *ngIf="users.length>1"><a [routerLink]="['/users','edit',t.id]">View</a></td>
+        </tr>
+    </tbody>
+</table>
+
+<p *ngIf="users.length==0">No Data Present</p>
